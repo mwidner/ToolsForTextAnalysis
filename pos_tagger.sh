@@ -1,9 +1,9 @@
 #!/bin/sh
 
-DOC_PATH="/Users/widner/Projects/DLCL/Alduy/Rhetoric_of_LePen/corpora/year"
+DOC_PATH="./"
 FILES=`ls ${DOC_PATH}/*.txt`
 TT_FR="/Applications/TreeTagger/cmd/tagger-chunker-french"
-RESULTS_DIR="/Users/widner/Projects/DLCL/Alduy/Rhetoric_of_LePen/results/treetagger/year"
+RESULTS_DIR="./results"
 
 if [ ! -d $RESULTS_DIR ];
 	then

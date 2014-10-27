@@ -1,7 +1,7 @@
 #!/bin/sh
 #
-# This script runs MALLET on a corpus with different numbers of 
-# topics and also generates detailed diagnostic output for 
+# This script runs MALLET on a corpus with different numbers of
+# topics and also generates detailed diagnostic output for
 # analysis of the topic quality
 #
 # It generates however many sub-directories it needs to store
@@ -17,7 +17,7 @@
 ### VARIABLES ###
 MALLET_HOME=/Applications/mallet
 mallet=$MALLET_HOME/bin/mallet
-networks="/Users/widner/Projects/DLCL/Alduy/Rhetoric_of_LePen/py3env/bin/python /Users/widner/Projects/DLCL/Alduy/Rhetoric_of_LePen/mallet2graph.py"
+networks"python ./mallet2graph.py"
 # n_topics=(10 20 40 80)
 n_topics=(40)
 PROJECT=LePen
@@ -53,7 +53,7 @@ for topics in ${n_topics[@]}
         mkdir -p $topics_output
     fi
 	$mallet run cc.mallet.topics.tui.TopicTrainer --input $outputdir/${PROJECT}.vectors --num-topics $topics --optimize-interval 20 --diagnostics-file $topics_output/diagnostics.xml --output-topic-keys $topics_output/topic-keys.txt --output-doc-topics $topics_output/doc-topics.txt --xml-topic-phrase-report $topics_output/topic-phrase-report.xml --xml-topic-report $topics_output/topic-report.xml --topic-word-weights-file $topics_output/topic-word-weights.txt --word-topic-counts-file $topics_output/word-topic-counts.txt --output-state $topics_output/state.gz
- 
+
   ## Generate network graphs from topic models
   $networks -d ${outputdir}/${topics}/doc-topics.txt -t ${outputdir}/${topics}/topic-keys.txt -o ${outputdir}/${topics}/network.gexf
   done

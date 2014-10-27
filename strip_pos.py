@@ -9,7 +9,7 @@ import os
 import csv
 from bs4 import BeautifulSoup
 
-BASE_DIR = '/Users/widner/Projects/DLCL/Alduy/Rhetoric_of_LePen/'
+BASE_DIR = './'
 INPUT_DIR = BASE_DIR + 'results/treetagger/year/'
 OUTPUT_DIR = BASE_DIR + 'results/stripped/year/'
 

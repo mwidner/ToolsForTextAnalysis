@@ -13,21 +13,21 @@ import sys
 import pandas as pd
 import datetime as dt
 
-BASEDIR = '/Users/widner/Projects/DLCL/Alduy/Rhetoric_of_LePen/'
-WORKBOOK = BASEDIR + 'metadata/LePen Corpus Metadata.xlsx'
-SOURCE = BASEDIR + 'corpora_raw/Database CLEAN Book LePen2014/'
+BASEDIR = '/.'
+WORKBOOK = BASEDIR + 'metadata/metadata.xlsx'
+SOURCE = BASEDIR + 'corpora_raw/'
 TARGET = BASEDIR + 'corpora/'
 
 # sheets to ignore; names should be all lower-cased here
-ignore_sheets = ['all transcribed dropbox files', 'transcribed but not cleaned']
+ignore_sheets = ['', '']
 
 # to rename some columns for easier/more legible access later
 column_maps = {'date (dd/mm/yyyy)': 'date', 'type of media': 'genre'}
 
 # rename our genres to something more legible
-genre_maps = {'DL Radio': 'radio', 
-				'DL Radio ': 'radio', 
-				'CabSat': 'television', 
+genre_maps = {'DL Radio': 'radio',
+				'DL Radio ': 'radio',
+				'CabSat': 'television',
 				'DLTV': 'television',
 				'éditorial ': 'éditorial'
 				}
@@ -52,7 +52,7 @@ def load_words(filename):
 	'''
 	Open and read a text file
 	Return contents as raw string
-	''' 
+	'''
 	words = list()
 	raw = str()
 	try:
@@ -87,8 +87,8 @@ def get_unique(df, key):
 	'''
 	return(pd.unique(df[key].values.ravel()))
 
-def main(): 
-	''' 
+def main():
+	'''
 	Process metadata spreadsheet
 	Organize by different slicings
 	'''
